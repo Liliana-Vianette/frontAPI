@@ -1,4 +1,6 @@
+
 import { Component } from '@angular/core';
+import { AccountsService } from './services/accounts.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'accounts';
+
+  constructor(
+    private accountService: AccountsService
+    ){
+
+      this. accountService.getCuentas().subscribe(resp => {
+        console.log(resp)
+      })
+    }
 }
+
